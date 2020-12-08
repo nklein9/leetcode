@@ -1,0 +1,2 @@
+C:\Dev\leetcode\PalindromeNumber\Debug\PalindromeNumber.exe
+C:\Dev\leetcode\PalindromeNumber\Debug\PalindromeNumber.pdb

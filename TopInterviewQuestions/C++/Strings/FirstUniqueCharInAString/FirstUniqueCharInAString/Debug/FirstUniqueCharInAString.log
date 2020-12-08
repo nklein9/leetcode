@@ -1,0 +1,4 @@
+﻿  FirstUniqueCharInAString.cpp
+C:\Dev\C++\leetcode\FirstUniqueCharInAString\FirstUniqueCharInAString\src\FirstUniqueCharInAString.cpp(19,27): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\C++\leetcode\FirstUniqueCharInAString\FirstUniqueCharInAString\src\FirstUniqueCharInAString.cpp(23,27): warning C4018: '<': signed/unsigned mismatch
+  FirstUniqueCharInAString.vcxproj -> C:\Dev\C++\leetcode\FirstUniqueCharInAString\Debug\FirstUniqueCharInAString.exe

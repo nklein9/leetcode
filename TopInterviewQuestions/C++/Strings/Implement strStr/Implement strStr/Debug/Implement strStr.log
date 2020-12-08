@@ -1,0 +1,4 @@
+﻿  Implement strStr.cpp
+C:\Users\Nick\source\repos\Implement strStr\Implement strStr\src\Implement strStr.cpp(14,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Nick\source\repos\Implement strStr\Implement strStr\src\Implement strStr.cpp(14,53): warning C4018: '<': signed/unsigned mismatch
+  Implement strStr.vcxproj -> C:\Users\Nick\source\repos\Implement strStr\Debug\Implement strStr.exe

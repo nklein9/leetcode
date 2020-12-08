@@ -1,0 +1,4 @@
+﻿  ReverseString.cpp
+C:\Dev\C++\leetcode\ReverseString\ReverseString\src\ReverseString.cpp(16,27): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\C++\leetcode\ReverseString\ReverseString\src\ReverseString.cpp(25,23): warning C4018: '<': signed/unsigned mismatch
+  ReverseString.vcxproj -> C:\Dev\C++\leetcode\ReverseString\Debug\ReverseString.exe

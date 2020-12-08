@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Dev\leetcode\LongestSubstringWORepeatingCharacters\main.cpp(35,16): warning C4018: '<': signed/unsigned mismatch
+  LongestSubstringWORepeatingCharacters.vcxproj -> C:\Dev\leetcode\LongestSubstringWORepeatingCharacters\Debug\LongestSubstringWORepeatingCharacters.exe
