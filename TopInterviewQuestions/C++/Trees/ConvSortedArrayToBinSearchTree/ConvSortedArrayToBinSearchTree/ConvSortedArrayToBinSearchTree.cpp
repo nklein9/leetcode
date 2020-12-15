@@ -2,51 +2,93 @@
 #include <vector>
 #include <string>
 
+#define LOG(x) std::cout << x << std::endl;
+
 struct TreeNode {
     int val;
-    TreeNode *left;
-    TreeNode *right;
+    TreeNode* left;
+    TreeNode* right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
-#define LOG( name, value) std::cout << name << ": " << value << std::endl;
 class Solution {
 public:
+    TreeNode* sortedArrayToBST(std::vector<int>& nums, int begin, int end) {
+        LOG("BST1");
+        if (begin > end) return nullptr;
+        LOG("not null");
+
+        std::cout << "input vector: ";
+        for (int i = 0; i < nums.size(); i++)
+            std::cout << nums[i] << " ";
+        std::cout << " Begin: " << begin << " End: "  << end << std::endl;
+
+        int mid = (begin + end) / 2;
+        LOG("Val: " << nums[mid])
+        TreeNode* root = newNode(nums[mid]);
+
+        LOG("start left");
+        root->left = sortedArrayToBST(nums, begin, mid - 1);
+        if (root->left != nullptr) LOG("Left: " << root->left->val);
+        root->right = sortedArrayToBST(nums, mid + 1, end);
+        LOG("start right");
+        if (root->left != nullptr) LOG("Right: " << root->right->val);
+
+        return root;
+    }
     TreeNode* sortedArrayToBST(std::vector<int>& nums) {
-        if (nums.size() == 0) { TreeNode root; TreeNode* output = &root; return output; }
-        
-        int center = nums.size() / 2;
-        TreeNode root(nums[center]);
-        nums.erase(nums.begin()+(center-1));
-        TreeNode* current = &root;
-        int nodes = nums.size()+1;
+        int begin = 0; int end = nums.size() - 1;
+        LOG("BST2");
+        if (nums.empty()) return nullptr;
+        if (0 > nums.size()-1) return nullptr;
 
-        LOG("size", nodes);
+        std::cout << "input vector: ";
+        for (int i = 0; i < nums.size(); i++)
+            std::cout << nums[i] << " ";
+        std::cout << " Begin: " << begin << " End: " << end << std::endl;
 
-        for (int i = 0; i < nodes; i++) {
-            LOG("node", i); LOG("CurrentStart", current->val);
-            TreeNode next (nums.front());
-            while(1) {
-                if (nums.empty()) break;
-                if (next.val < current->val) {
-                    if (current->left) current = current->left;
-                    else { current->left = &next; continue; }
-                    LOG("CurrentLeft", current->val);
-                }
-                else if (next.val > current->val) {
-                    if (current->right) current = current->right;
-                    else { current->right = &next; continue; }
-                    LOG("CurrentRight", current->val);
-                }
-            }
-            nums.erase(nums.begin());
+        int mid = (nums.size() - 1) / 2;
+        LOG("Val: " << nums[mid])
+        TreeNode* root = newNode(nums[mid]);
+
+        LOG("start left");
+        root->left = sortedArrayToBST(nums, begin, mid - 1);
+        LOG("Left: " << root->left->val);
+        LOG("start right");
+        root->right = sortedArrayToBST(nums, mid + 1, end);
+        LOG("Right: " << root->right->val);
+
+        return root;
+    }
+    TreeNode* newNode(int data) {
+        TreeNode* node = new TreeNode;
+        node->val = data;
+        node->left = NULL;
+        node->right = NULL;
+
+        return node;
+    }
+    void printTree(TreeNode* node) {
+        if (node == NULL) {
+            return;
         }
-        return &root;
+        std::cout << node->val << " ";
+        printTree(node->left);
+        printTree(node->right);
     }
 };
 
 int main() {
-
+    int inInt[] = { -10,-3,0,5,9 };
+    std::vector<int> input = { inInt, inInt + (sizeof(inInt) / sizeof(int)) };
+    LOG(1);
+    Solution sol;
+    LOG(2);
+    TreeNode* out = sol.sortedArrayToBST(input);
+    LOG(3);
+    sol.printTree(out);
+    std::cout << std::cin.get();
 }
+
